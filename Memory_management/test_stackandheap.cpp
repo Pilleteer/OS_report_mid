@@ -1,8 +1,5 @@
 #include <iostream>
 
-
-
-
 using namespace std;
 int get_overflow(int n){
    return get_overflow(n+1);
