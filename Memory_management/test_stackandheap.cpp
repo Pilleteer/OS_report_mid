@@ -1,4 +1,6 @@
 #include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
 
 using namespace std;
 int get_overflow(int n){
@@ -9,19 +11,23 @@ int cnt_to_zero(int n){
        return 0;
    }
    else{
-       cout << "Value of n: "<< n << " Address of n:" << &n << endl;;
+       cout << "Value of stack: "<< n << " Address of stack:" << &n << endl;;
        return cnt_to_zero(n-1);
    }
 }
-int keeping_malloc(int n){
-   if (n == 0){
-       return 0;
-   }
-   int *p = (int*)malloc(sizeof(int));
-   *p = n;
-   cout << "Value of n: "<< *p << " Address of n:" << p << endl;
-   n=n-1;
-   return keeping_malloc(n);
+int keeping_malloc(){
+    int *h1=(int *)malloc(sizeof(int));
+    int *h2=(int *)malloc(sizeof(int));
+    int *h3=(int *)malloc(sizeof(int));
+
+    cout << "Address of h1: " << &h1 << endl;
+    cout << "Address of h2: " << &h2 << endl;
+    cout << "Address of h3: " << &h3 << endl;
+
+    free(h1);
+    free(h2);
+    free(h3);
+    return 0;
 }
 int main() {
    int x,get_of;
@@ -33,6 +39,6 @@ int main() {
        get_overflow(get_of);
    }
    cnt_to_zero(x);// call stack
-   keeping_malloc(x);// call heap
+   keeping_malloc();// call heap
    return 0;
 }
