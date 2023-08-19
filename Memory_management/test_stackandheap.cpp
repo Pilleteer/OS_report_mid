@@ -20,9 +20,9 @@ int keeping_malloc(){
     int *h2=(int *)malloc(sizeof(int));
     int *h3=(int *)malloc(sizeof(int));
 
-    cout << "Address of h1: " << &h1 << endl;
-    cout << "Address of h2: " << &h2 << endl;
-    cout << "Address of h3: " << &h3 << endl;
+    cout << "Address of h1: " << h1 << endl;
+    cout << "Address of h2: " << h2 << endl;
+    cout << "Address of h3: " << h3 << endl;
 
     free(h1);
     free(h2);
